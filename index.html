@@ -1,0 +1,493 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Boyfriend's Day ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', serif;
+    overflow: hidden;
+}
+
+/* ================= BACKGROUND ================= */
+
+body {
+    background: radial-gradient(circle at center, #35152d, #120914 70%);
+    color: white;
+}
+
+.sparkles {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.sparkle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 10px white, 0 0 20px #ff9fd6;
+    animation: sparkle 3s infinite ease-in-out;
+}
+
+@keyframes sparkle {
+    0%,100% {
+        opacity: 0.2;
+        transform: scale(0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}
+
+/* ================= PAGES ================= */
+
+.page {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.95);
+    transition: 1s ease;
+}
+
+.page.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+}
+
+/* ================= PAGE 1 ================= */
+
+h1 {
+    font-size: clamp(45px, 8vw, 100px);
+    font-weight: bold;
+    background: linear-gradient(
+        90deg,
+        #ff4d8d,
+        #ffb3d9,
+        #fff,
+        #ff6fae,
+        #c77dff
+    );
+    background-size: 300%;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: colors 5s infinite linear;
+    text-shadow: 0 0 30px rgba(255,120,190,0.5);
+}
+
+@keyframes colors {
+    0% { background-position: 0%; }
+    100% { background-position: 300%; }
+}
+
+.subtitle {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #ffd9ec;
+    letter-spacing: 3px;
+}
+
+button {
+    margin-top: 35px;
+    padding: 14px 35px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #ff4f9a, #b967ff);
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 0 25px rgba(255,80,170,.5);
+    transition: .3s;
+}
+
+button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 40px rgba(255,130,210,.8);
+}
+
+/* ================= BOUQUET ================= */
+
+.bouquet-title {
+    font-size: 40px;
+    color: #ffd2e7;
+    margin-bottom: 15px;
+}
+
+.bouquet {
+    position: relative;
+    width: 330px;
+    height: 390px;
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+.flower {
+    position: absolute;
+    font-size: 70px;
+    filter: drop-shadow(0 0 15px rgba(255,160,210,.7));
+}
+
+.f1 { top: 20px; left: 110px; }
+.f2 { top: 60px; left: 30px; }
+.f3 { top: 65px; right: 25px; }
+.f4 { top: 125px; left: 80px; }
+.f5 { top: 130px; right: 70px; }
+.f6 { top: 170px; left: 135px; }
+
+.stems {
+    position: absolute;
+    width: 170px;
+    height: 180px;
+    left: 80px;
+    top: 150px;
+    background: linear-gradient(
+        70deg,
+        transparent 48%,
+        #5b8d52 49%,
+        #477842 52%,
+        transparent 53%
+    );
+}
+
+.wrapper {
+    position: absolute;
+    bottom: 10px;
+    left: 45px;
+    width: 240px;
+    height: 170px;
+    background: linear-gradient(135deg, #d6a6b7, #f4d3df);
+    clip-path: polygon(10% 0, 90% 0, 100% 100%, 0 100%);
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(255,180,220,.3);
+}
+
+.ribbon {
+    position: absolute;
+    bottom: 80px;
+    left: 135px;
+    width: 60px;
+    height: 20px;
+    background: #9b4f70;
+    border-radius: 50%;
+}
+
+/* ================= LETTER PAGE ================= */
+
+.letter-page {
+    position: relative;
+}
+
+.letter {
+    position: relative;
+    width: min(650px, 80vw);
+    max-height: 75vh;
+    overflow-y: auto;
+    padding: 45px;
+    background:
+        linear-gradient(rgba(255,248,220,.95), rgba(239,220,175,.95));
+    color: #4b3024;
+    border: 8px solid #c49a62;
+    border-radius: 5px;
+    box-shadow:
+        0 0 0 4px #6f4c32,
+        0 20px 60px rgba(0,0,0,.6);
+    text-align: left;
+    line-height: 1.8;
+}
+
+.letter h2 {
+    text-align: center;
+    font-size: 34px;
+    margin-bottom: 20px;
+    color: #70462c;
+}
+
+.letter p {
+    font-size: 17px;
+    margin-bottom: 15px;
+}
+
+.signature {
+    text-align: right;
+    font-style: italic;
+    font-size: 21px;
+    margin-top: 25px;
+}
+
+/* ================= POLAROIDS ================= */
+
+.polaroid {
+    position: absolute;
+    width: 150px;
+    background: #fff;
+    padding: 10px 10px 35px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.5);
+    color: #333;
+    font-family: Arial, sans-serif;
+    transition: .4s;
+}
+
+.polaroid img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.polaroid span {
+    display: block;
+    margin-top: 8px;
+    font-size: 13px;
+}
+
+.polaroid:hover {
+    transform: rotate(0deg) scale(1.1) !important;
+    z-index: 10;
+}
+
+.photo1 {
+    left: 5%;
+    top: 18%;
+    transform: rotate(-12deg);
+}
+
+.photo2 {
+    right: 5%;
+    top: 15%;
+    transform: rotate(10deg);
+}
+
+.photo3 {
+    left: 7%;
+    bottom: 10%;
+    transform: rotate(8deg);
+}
+
+.photo4 {
+    right: 7%;
+    bottom: 8%;
+    transform: rotate(-9deg);
+}
+
+/* MOBILE */
+
+@media(max-width: 700px) {
+
+    .polaroid {
+        width: 90px;
+        padding: 6px 6px 25px;
+    }
+
+    .polaroid img {
+        height: 90px;
+    }
+
+    .polaroid span {
+        font-size: 9px;
+    }
+
+    .letter {
+        padding: 25px;
+        width: 78vw;
+    }
+
+    .letter p {
+        font-size: 14px;
+    }
+
+    .bouquet {
+        transform: scale(.8);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- SPARKLING BACKGROUND -->
+
+<div class="sparkles">
+
+<script>
+for(let i = 0; i < 100; i++){
+    let s = document.createElement("div");
+    s.className = "sparkle";
+    s.style.left = Math.random()*100 + "%";
+    s.style.top = Math.random()*100 + "%";
+    s.style.animationDelay = Math.random()*3 + "s";
+    s.style.animationDuration = (2 + Math.random()*4) + "s";
+    document.querySelector(".sparkles").appendChild(s);
+}
+</script>
+
+</div>
+
+
+<!-- ================= PAGE 1 ================= -->
+
+<section class="page active" id="page1">
+
+    <div style="font-size:70px;">💗✨</div>
+
+    <h1>Happy Boyfriend's Day</h1>
+
+    <div class="subtitle">
+        To the boy who makes ordinary days feel special...
+    </div>
+
+    <button onclick="nextPage(2)">
+        Open My Little Surprise 💌
+    </button>
+
+</section>
+
+
+<!-- ================= PAGE 2 ================= -->
+
+<section class="page" id="page2">
+
+    <div class="bouquet-title">
+        A Little Bouquet For You 🌷
+    </div>
+
+    <div class="bouquet">
+
+        <div class="flower f1">🌷</div>
+        <div class="flower f2">🌸</div>
+        <div class="flower f3">🌷</div>
+        <div class="flower f4">🌺</div>
+        <div class="flower f5">🌷</div>
+        <div class="flower f6">🌸</div>
+
+        <div class="stems"></div>
+        <div class="wrapper"></div>
+        <div class="ribbon"></div>
+
+    </div>
+
+    <button onclick="nextPage(3)">
+        There's Something I Want To Tell You 💌
+    </button>
+
+</section>
+
+
+<!-- ================= PAGE 3 ================= -->
+
+<section class="page letter-page" id="page3">
+
+    <!-- POLAROIDS -->
+
+    <div class="polaroid photo1">
+        <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=500&q=80">
+        <span>Our little memories 🤍</span>
+    </div>
+
+    <div class="polaroid photo2">
+        <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=500&q=80">
+        <span>Flowers for you 🌷</span>
+    </div>
+
+    <div class="polaroid photo3">
+        <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=500&q=80">
+        <span>My favorite person 💕</span>
+    </div>
+
+    <div class="polaroid photo4">
+        <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=500&q=80">
+        <span>Forever memories ✨</span>
+    </div>
+
+
+    <!-- LETTER -->
+
+    <div class="letter">
+
+        <h2>To My Favorite Boy 🤍</h2>
+
+        <p>
+            My love,
+        </p>
+
+        <p>
+            Happy Boyfriend's Day to the person who somehow managed
+            to become such a special part of my life.
+        </p>
+
+        <p>
+            I don't think you realize how much happiness you bring
+            into my ordinary days. Sometimes it's the smallest things —
+            a conversation, a laugh, a silly moment — that end up
+            becoming my favorite memories.
+        </p>
+
+        <p>
+            I hope you always know that you are appreciated,
+            cared for, and loved more than words can properly explain.
+        </p>
+
+        <p>
+            If I could give you anything today, I'd give you a box
+            filled with every little moment that made me smile
+            because of you.
+        </p>
+
+        <p>
+            Until then, you'll have to accept this tiny digital
+            bouquet and this little letter from me. 🌷
+        </p>
+
+        <p>
+            Thank you for being you.
+        </p>
+
+        <div class="signature">
+            With all my love,<br>
+            Yours 🤍
+        </div>
+
+    </div>
+
+</section>
+
+
+<script>
+
+function nextPage(number){
+
+    document.querySelectorAll(".page").forEach(page => {
+        page.classList.remove("active");
+    });
+
+    document.getElementById("page" + number)
+        .classList.add("active");
+}
+
+</script>
+
+</body>
+</html>
